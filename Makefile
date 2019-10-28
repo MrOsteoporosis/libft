@@ -6,7 +6,7 @@
 #    By: averheij <averheij@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 12:19:16 by averheij       #+#    #+#                 #
-#    Updated: 2019/10/28 14:45:04 by averheij      ########   odam.nl          #
+#    Updated: 2019/10/28 15:02:01 by averheij      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,7 @@ _SRC = ft_memset.c ft_bzero.c
 SRCPATH = ./srcs/
 SRC = $(patsubst %, $(SRCPATH)%, $(_SRC))
 
-_INCLUDE = libft.h
 INCLUDEPATH = ./includes/
-INCLUDE = $(patsubst %, $(INCLUDEPATH)%, $(_INCLUDE))
 
 all: $(NAME)
 
