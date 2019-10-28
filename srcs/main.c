@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/28 16:18:57 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/28 16:43:26 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,18 @@ void	memmove_test(const void *src, int n)
 	printf("%s\n", memmove(b, src, n));
 }
 
+void	memchr_test(void *src, int c, int n)
+{
+	int		i;
+	void	*a;
+	void	*b;
+
+	printf("%s\n", src);
+	a = (void*)malloc(n);
+	printf("%s\n", ft_memchr(src, c, n));
+	printf("%s\n", memchr(src, c, n));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -130,4 +142,5 @@ int		main(void)
 	memcpy_test("2tictacs", 9);
 	memccpy_test("3tictacs", 'c', 9);
 	memmove_test("4tictacs", 9);
+	memccpy_test("5tictacs", 'c', 9);
 }
