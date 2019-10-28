@@ -6,12 +6,11 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/28 14:39:48 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/28 15:31:14 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -83,8 +82,22 @@ void	bzero_test(int n)
 	printf("\n");
 }
 
+void	memcpy_test(const void *src, int n)
+{
+	int		i;
+	void	*a;
+	void	*b;
+
+	printf("%s\n", src);
+	a = (void*)malloc(n);
+	printf("%s\n", ft_memcpy(a, src, n));
+	b = (void*)malloc(n);
+	printf("%s\n", memcpy(b, src, n));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
 	bzero_test(5);
+	memcpy_test("2tictacs", 9);
 }
