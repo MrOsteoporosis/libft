@@ -6,22 +6,24 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 12:54:03 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/28 13:48:00 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/28 15:10:08 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, int len)
+void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*pps;
+	int				l;
 
+	l = len;
 	pps = b;
-	while (len)
+	while (l)
 	{
 		*pps = (unsigned char)c;
 		pps++;
-		len--;
+		l--;
 	}
 	return (b);
 }
