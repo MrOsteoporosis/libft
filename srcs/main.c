@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/28 16:04:47 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/28 16:18:57 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,24 @@ void	memccpy_test(const void *src, int c, int n)
 	printf("%s\n", b);
 }
 
+void	memmove_test(const void *src, int n)
+{
+	int		i;
+	void	*a;
+	void	*b;
+
+	printf("%s\n", src);
+	a = (void*)malloc(n);
+	printf("%s\n", ft_memmove(a, src, n));
+	b = (void*)malloc(n);
+	printf("%s\n", memmove(b, src, n));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
 	bzero_test(5);
 	memcpy_test("2tictacs", 9);
-	memccpy_test("3ti4ctacs", '4', 9);
+	memccpy_test("3tictacs", 'c', 9);
+	memmove_test("4tictacs", 9);
 }
