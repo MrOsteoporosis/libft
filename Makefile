@@ -6,30 +6,31 @@
 #    By: averheij <averheij@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 12:19:16 by averheij       #+#    #+#                 #
-#    Updated: 2019/10/28 12:50:50 by averheij      ########   odam.nl          #
+#    Updated: 2019/10/28 14:45:04 by averheij      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-_SRC = 
+_SRC = ft_memset.c ft_bzero.c
 SRCPATH = ./srcs/
 SRC = $(patsubst %, $(SRCPATH)%, $(_SRC))
 
-_INCLUDE = 
+_INCLUDE = libft.h
 INCLUDEPATH = ./includes/
 INCLUDE = $(patsubst %, $(INCLUDEPATH)%, $(_INCLUDE))
 
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(SRC)
+	gcc -c $(SRC) -I$(INCLUDEPATH)
 	ar rc  $(NAME) $(SRC)
-	ranlib $(NAME)
 
 clean:
+	rm -f $(patsubst %.c, %.o, $(_SRC))
 
 fclean: clean
+	rm -f $(NAME)
 
 re: clean $(NAME)
 
