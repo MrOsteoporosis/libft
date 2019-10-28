@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   libft.h                                            :+:    :+:            */
+/*   ft_memccpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 13:09:52 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/28 15:46:41 by averheij      ########   odam.nl         */
+/*   Created: 2019/10/28 15:38:29 by averheij       #+#    #+#                */
+/*   Updated: 2019/10/28 16:07:14 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <string.h>
+#include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
-#endif
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+{
+	int		l;
+	void	*ptr;
+
+	l = 0;
+	while (l < n)
+	{
+		*(unsigned char*)(dst + l) = *(unsigned char*)(src + l);
+		l++;
+		if (*(unsigned char*)(src + l) == (unsigned char)c)
+		{
+			ptr = (dst + l + 1);
+			break ;
+		}
+	}
+	return (ptr);
+}
