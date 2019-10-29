@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 12:59:53 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 13:13:59 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,6 +205,29 @@ void	strlcat_test(const char *s)
 	printf("CC: %lu %s\n", strlcat(b, s, size), b);
 }
 
+void	strchr_test(const char *s, int c)
+{
+	char	*temp;
+
+	printf("memccpy\nIN: %s %c\n", s, (char)c);
+	if ((temp = ft_strchr(s, c)))
+	{
+		printf("FT: %s\n", temp);
+	}
+	else
+	{
+		printf("FT: NULL\n");
+	}
+	if ((temp = strchr(s, c)))
+	{
+		printf("CC: %s\n", temp);
+	}
+	else
+	{
+		printf("CC: NULL\n");
+	}
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -231,4 +254,7 @@ int		main(void)
 	strlcat_test("");
 	strlcat_test("2tac");
 	strlcat_test("3tac4me");
+	strchr_test("sentence", 'e');
+	strchr_test("", 'e');
+	strchr_test("sentence", 'q');
 }
