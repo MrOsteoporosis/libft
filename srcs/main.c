@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 11:12:17 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 11:35:53 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,13 @@ void	memcmp_test(const void *s1, const void *s2, int n)
 	printf("CC: %d\n", memcmp(s1, s2, n));
 }
 
+void	strlen_test(const char *s)
+{
+	printf("strlen\nIN: %s\n", s);
+	printf("FT: %zu\n", ft_strlen(s));
+	printf("CC: %lu\n", strlen(s));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -175,16 +182,18 @@ int		main(void)
 	memset_test(500, 0);
 	bzero_test(5);
 	bzero_test(0);
-	memcpy_test("2tictacs", 9);
+	memcpy_test("2tictacs", 8);
 	memcpy_test("", 0);
-	memccpy_test("3tictacs", 'c', 9);
-	memccpy_test("3tictacs", '4', 9);
+	memccpy_test("3tictacs", 'c', 8);
+	memccpy_test("3tictacs", '4', 8);
 	memccpy_test("", ' ', 0);
-	memmove_test_string("4tictacs", 9);
+	memmove_test_string("4tictacs", 8);
 	memmove_test_string("", 0);
 	memmove_test_array();
-	memchr_test("5tictacs", 'c', 9);
+	memchr_test("5tictacs", 'c', 8);
 	memcmp_test("hello", "hello", 5);
 	memcmp_test("hello", "hellO", 5);
 	memcmp_test("", "", 0);
+	strlen_test("6tictacs");
+	strlen_test("");
 }
