@@ -6,7 +6,7 @@
 #    By: averheij <averheij@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 12:19:16 by averheij       #+#    #+#                 #
-#    Updated: 2019/10/28 15:02:01 by averheij      ########   odam.nl          #
+#    Updated: 2019/10/29 10:42:53 by averheij      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INCLUDEPATH = ./includes/
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(SRC) -I$(INCLUDEPATH)
+	gcc -c $(SRC) -I$(INCLUDEPATH) //compile each individually
 	ar rc  $(NAME) $(SRC)
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/28 16:43:26 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 10:57:39 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,13 @@ void	memset_test(int c, int len)
 	void	*a;
 	void	*b;
 
+	printf("memset\nIN: %d %c\n", len, c);
 	a = (void*)malloc(len);
 	ft_memset(a, c, len);
-	i = 0;
-	while (i < len)
-	{
-		printf("%c", *(char*)(a + i));
-		i++;
-	}
-	printf("\n");
+	printf("FT: %s\n", a);
 	b = (void*)malloc(len);
 	memset(b, c, len);
-	i = 0;
-	while (i < len)
-	{
-		printf("%c", *(char*)(b + i));
-		i++;
-	}
-	printf("\n");
+	printf("CC: %s\n", b);
 }
 
 void	bzero_test(int n)
@@ -48,38 +37,13 @@ void	bzero_test(int n)
 
 	a = (void*)malloc(n);
 	memset(a, 68, n);
-	i = 0;
-	while (i < n)
-	{
-		printf("%c", *(char*)(a + i));
-		i++;
-	}
-	printf("\n");
+	printf("bzero\nIN: %s\n", a);
 	ft_bzero(a, n);
-	i = 0;
-	while (i < n)
-	{
-		printf("%c", *(char*)(a + i));
-		i++;
-	}
-	printf("\n");
+	printf("FT: %s\n", a);
 	b = (void*)malloc(n);
 	memset(b, 68, n);
-	i = 0;
-	while (i < n)
-	{
-		printf("%c", *(char*)(b + i));
-		i++;
-	}
-	printf("\n");
 	bzero(b, n);
-	i = 0;
-	while (i < n)
-	{
-		printf("%c", *(char*)(b + i));
-		i++;
-	}
-	printf("\n");
+	printf("CC: %s\n", b);
 }
 
 void	memcpy_test(const void *src, int n)
@@ -88,11 +52,11 @@ void	memcpy_test(const void *src, int n)
 	void	*a;
 	void	*b;
 
-	printf("%s\n", src);
+	printf("memcpy\nIN: %s\n", src);
 	a = (void*)malloc(n);
-	printf("%s\n", ft_memcpy(a, src, n));
+	printf("FT: %s\n", ft_memcpy(a, src, n));
 	b = (void*)malloc(n);
-	printf("%s\n", memcpy(b, src, n));
+	printf("CC: %s\n", memcpy(b, src, n));
 }
 
 void	memccpy_test(const void *src, int c, int n)
@@ -100,39 +64,101 @@ void	memccpy_test(const void *src, int c, int n)
 	int		i;
 	void	*a;
 	void	*b;
+	void	*temp;
 
-	printf("%s\n", src);
+	printf("memccpy\nIN: %s %c\n", src, (char)c);
 	a = (void*)malloc(n);
-	printf("%s\n", ft_memccpy(a, src, c, n));
-	printf("%s\n", a);
+	if ((temp = ft_memccpy(a, src, c, n)))
+	{
+		printf("FT: %c\n", *(char*)(temp - 1));
+	}
+	else
+	{
+		printf("FT: NULL\n");
+	}
+	printf("FT: %s\n", a);
 	b = (void*)malloc(n);
-	printf("%s\n", memccpy(b, src, c, n));
-	printf("%s\n", b);
+	if ((temp = memccpy(b, src, c, n)))
+	{
+		printf("CC: %c\n", *(char*)(temp - 1));
+	}
+	else
+	{
+		printf("CC: NULL\n");
+	}
+	printf("CC: %s\n", b);
 }
 
-void	memmove_test(const void *src, int n)
+void	memmove_test_string(const void *src, int n)
 {
 	int		i;
 	void	*a;
 	void	*b;
 
-	printf("%s\n", src);
+	printf("memmove\nIN: %s\n", src);
 	a = (void*)malloc(n);
-	printf("%s\n", ft_memmove(a, src, n));
+	printf("FT: %s\n", ft_memmove(a, src, n));
 	b = (void*)malloc(n);
-	printf("%s\n", memmove(b, src, n));
+	printf("CC: %s\n", memmove(b, src, n));
 }
 
-void	memchr_test(void *src, int c, int n)
+void	memmove_test_array(void)
+{
+	int		arr1[] = {0, 1, 2, 3, 4, 5, 6, 7};
+	int		arr2[] = {0, 1, 2, 3, 4, 5, 6, 7};
+	int		*a1;
+	int		*a2;
+	int		i;
+
+	printf("memmove\nIN: ");
+	i = 0;
+	while (i < 8)
+	{
+		printf("%d", arr1[i]);
+		if (i < 7)
+			printf(", ");
+		i++;
+	}
+	printf("\n");
+	a1 = &arr1[0];
+	a2 = &arr1[1];
+	ft_memmove(a1, a2, 7);
+	printf("FT: ");
+	i = 0;
+	while (i < 8)
+	{
+		printf("%d", arr1[i]);
+		if (i < 7)
+			printf(", ");
+		i++;
+	}
+	printf("\n");
+
+	a1 = &arr2[0];
+	a2 = &arr2[1];
+	memmove(a1, a2, 7);
+	printf("CC: ");
+	i = 0;
+	while (i < 8)
+	{
+		printf("%d", arr2[i]);
+		if (i < 7)
+			printf(", ");
+		i++;
+	}
+	printf("\n");
+}
+
+void	memchr_test(const void *src, int c, int n)
 {
 	int		i;
 	void	*a;
 	void	*b;
 
-	printf("%s\n", src);
+	printf("memchr\nIN: %s\n", src);
 	a = (void*)malloc(n);
-	printf("%s\n", ft_memchr(src, c, n));
-	printf("%s\n", memchr(src, c, n));
+	printf("FT: %s\n", ft_memchr(src, c, n));
+	printf("CC: %s\n", memchr(src, c, n));
 }
 
 int		main(void)
@@ -141,6 +167,8 @@ int		main(void)
 	bzero_test(5);
 	memcpy_test("2tictacs", 9);
 	memccpy_test("3tictacs", 'c', 9);
-	memmove_test("4tictacs", 9);
-	memccpy_test("5tictacs", 'c', 9);
+	memccpy_test("3tictacs", '4', 9);
+	memmove_test_string("4tictacs", 9);
+	memmove_test_array();
+	memchr_test("5tictacs", 'c', 9);
 }

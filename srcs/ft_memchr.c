@@ -6,16 +6,16 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 16:28:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/28 16:40:00 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 10:15:24 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int		l;
-	void	*ptr;
+	int			l;
+	const void	*ptr;
 
 	l = 0;
 	while (l < n)
@@ -27,5 +27,5 @@ void	*ft_memchr(void *s, int c, size_t n)
 		}
 		l++;
 	}
-	return (ptr);
+	return ((void*)ptr);
 }
