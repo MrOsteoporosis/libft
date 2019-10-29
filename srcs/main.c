@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 15:11:32 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 15:28:21 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,6 +292,20 @@ void	isprint_test(char c)
 	printf("CC: %d\n", isprint(c));
 }
 
+void	toupper_test(char c)
+{
+	printf("toupper\nIN: %c\n", c);
+	printf("FT: %c\n", ft_toupper(c));
+	printf("CC: %c\n", toupper(c));
+}
+
+void	tolower_test(char c)
+{
+	printf("tolower\nIN: %c\n", c);
+	printf("FT: %c\n", ft_tolower(c));
+	printf("CC: %c\n", tolower(c));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -348,4 +362,8 @@ int		main(void)
 	isprint_test(31);
 	isprint_test(32);
 	isprint_test(127);
+	toupper_test('a');
+	toupper_test('D');
+	tolower_test('a');
+	tolower_test('D');
 }
