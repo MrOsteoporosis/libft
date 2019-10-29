@@ -6,13 +6,14 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 14:33:28 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 15:11:32 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 void	memset_test(int c, int len)
 {
@@ -256,6 +257,41 @@ void	atoi_test(const char *str)
 	printf("CC: %d\n", atoi(str));
 }
 
+void	isalpha_test(char c)
+{
+	printf("isalpha\nIN: %c\n", c);
+	printf("FT: %d\n", ft_isalpha(c));
+	printf("CC: %d\n", isalpha(c));
+}
+
+void	isdigit_test(char c)
+{
+	printf("isdigit\nIN: %c\n", c);
+	printf("FT: %d\n", ft_isdigit(c));
+	printf("CC: %d\n", isdigit(c));
+}
+
+void	isalnum_test(char c)
+{
+	printf("isalnum\nIN: %c\n", c);
+	printf("FT: %d\n", ft_isalnum(c));
+	printf("CC: %d\n", isalnum(c));
+}
+
+void	isascii_test(char c)
+{
+	printf("isascii\nIN: %c\n", c);
+	printf("FT: %d\n", ft_isascii(c));
+	printf("CC: %d\n", isascii(c));
+}
+
+void	isprint_test(char c)
+{
+	printf("isprint\nIN: %c\n", c);
+	printf("FT: %d\n", ft_isprint(c));
+	printf("CC: %d\n", isprint(c));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -300,4 +336,16 @@ int		main(void)
 	atoi_test("+-12300");
 	atoi_test("2147483647");
 	atoi_test("-2147483648");
+	isalpha_test('a');
+	isalpha_test('2');
+	isdigit_test('a');
+	isdigit_test('2');
+	isalnum_test('a');
+	isalnum_test('2');
+	isalnum_test('&');
+	isascii_test(0);
+	isascii_test(127);
+	isprint_test(31);
+	isprint_test(32);
+	isprint_test(127);
 }
