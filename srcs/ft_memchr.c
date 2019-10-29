@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 16:28:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 10:15:24 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 15:57:10 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	const void	*ptr;
 
 	l = 0;
-	while (l < n)
+	ptr = NULL;
+	while (l < (int)n)
 	{
 		if (*(unsigned char*)(s + l) == (unsigned char)c)
 		{

@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 12:47:59 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 13:00:38 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 15:57:34 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	while (dst[i])
 		i++;
 	b = i;
-	while (src[i - b] && i < dstsize - 1)
+	while (src[i - b] && i < (int)dstsize - 1)
 	{
 		dst[i] = src[i - b];
 		i++;

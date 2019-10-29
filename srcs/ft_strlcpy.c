@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 12:17:37 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 12:46:19 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 15:57:43 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	int		i;
 
 	i = 0;
-	while (src[i] && i < dstsize - 1)
+	while (src[i] && i < (int)dstsize - 1)
 	{
 		dst[i] = src[i];
 		i++;
