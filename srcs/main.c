@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 14:02:53 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 14:33:28 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -249,6 +249,13 @@ void	strncmp_test(const void *s1, const void *s2, int n)
 	printf("CC: %d\n", strncmp(s1, s2, n));
 }
 
+void	atoi_test(const char *str)
+{
+	printf("atoi\nIN: %s\n", str);
+	printf("FT: %d\n", ft_atoi(str));
+	printf("CC: %d\n", atoi(str));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -288,4 +295,9 @@ int		main(void)
 	strncmp_test("hello", "hello", 5);
 	strncmp_test("hello", "hellO", 5);
 	strncmp_test("", "", 0);
+	atoi_test("-+100");
+	atoi_test("-1020");
+	atoi_test("+-12300");
+	atoi_test("2147483647");
+	atoi_test("-2147483648");
 }
