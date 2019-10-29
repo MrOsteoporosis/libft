@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 13:13:59 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 14:02:53 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,23 +69,15 @@ void	memccpy_test(const void *src, int c, int n)
 	printf("memccpy\nIN: %s %c\n", src, (char)c);
 	a = (void*)malloc(n);
 	if ((temp = ft_memccpy(a, src, c, n)))
-	{
 		printf("FT: %c\n", *(char*)(temp - 1));
-	}
 	else
-	{
 		printf("FT: NULL\n");
-	}
 	printf("FT: %s\n", a);
 	b = (void*)malloc(n);
 	if ((temp = memccpy(b, src, c, n)))
-	{
 		printf("CC: %c\n", *(char*)(temp - 1));
-	}
 	else
-	{
 		printf("CC: NULL\n");
-	}
 	printf("CC: %s\n", b);
 }
 
@@ -209,23 +201,52 @@ void	strchr_test(const char *s, int c)
 {
 	char	*temp;
 
-	printf("memccpy\nIN: %s %c\n", s, (char)c);
+	printf("strchr\nIN: %s %c\n", s, (char)c);
 	if ((temp = ft_strchr(s, c)))
-	{
 		printf("FT: %s\n", temp);
-	}
 	else
-	{
 		printf("FT: NULL\n");
-	}
 	if ((temp = strchr(s, c)))
-	{
 		printf("CC: %s\n", temp);
-	}
 	else
-	{
 		printf("CC: NULL\n");
-	}
+}
+
+void	strrchr_test(const char *s, int c)
+{
+	char	*temp;
+
+	printf("strrchr\nIN: %s %c\n", s, (char)c);
+	if ((temp = ft_strrchr(s, c)))
+		printf("FT: %s\n", temp);
+	else
+		printf("FT: NULL\n");
+	if ((temp = strrchr(s, c)))
+		printf("CC: %s\n", temp);
+	else
+		printf("CC: NULL\n");
+}
+
+void	strnstr_test(const char *h, const char *s, int c)
+{
+	char	*temp;
+
+	printf("strnstr\nIN: %s %s\n", h, s);
+	if ((temp = ft_strnstr(h, s, c)))
+		printf("FT: %s\n", temp);
+	else
+		printf("FT: NULL\n");
+	if ((temp = strnstr(h, s, c)))
+		printf("CC: %s\n", temp);
+	else
+		printf("CC: NULL\n");
+}
+
+void	strncmp_test(const void *s1, const void *s2, int n)
+{
+	printf("strncmp\nIN: %s %s\n", s1, s2);
+	printf("FT: %d\n", ft_strncmp(s1, s2, n));
+	printf("CC: %d\n", strncmp(s1, s2, n));
 }
 
 int		main(void)
@@ -235,15 +256,15 @@ int		main(void)
 	memset_test(500, 0);
 	bzero_test(5);
 	bzero_test(0);
-	memcpy_test("2tictacs", 8);
+	memcpy_test("2tictacs", 9);
 	memcpy_test("", 0);
-	memccpy_test("3tictacs", 'c', 8);
-	memccpy_test("3tictacs", '4', 8);
+	memccpy_test("3tictacs", 'c', 9);
+	memccpy_test("3tictacs", '4', 9);
 	memccpy_test("", ' ', 0);
-	memmove_test_string("4tictacs", 8);
+	memmove_test_string("4tictacs", 9);
 	memmove_test_string("", 0);
 	memmove_test_array();
-	memchr_test("5tictacs", 'c', 8);
+	memchr_test("5tictacs", 'c', 9);
 	memcmp_test("hello", "hello", 5);
 	memcmp_test("hello", "hellO", 5);
 	memcmp_test("", "", 0);
@@ -257,4 +278,14 @@ int		main(void)
 	strchr_test("sentence", 'e');
 	strchr_test("", 'e');
 	strchr_test("sentence", 'q');
+	strrchr_test("sentence", 'n');
+	strrchr_test("", 'e');
+	strrchr_test("sentence", 'q');
+	strnstr_test("haystack", "sta", 9);
+	strnstr_test("haystack", "ack", 9);
+	strnstr_test("", "ack", 9);
+	strnstr_test("ticstack", "", 9);
+	strncmp_test("hello", "hello", 5);
+	strncmp_test("hello", "hellO", 5);
+	strncmp_test("", "", 0);
 }
