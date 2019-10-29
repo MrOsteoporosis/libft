@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 10:57:39 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 11:12:17 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,14 +161,30 @@ void	memchr_test(const void *src, int c, int n)
 	printf("CC: %s\n", memchr(src, c, n));
 }
 
+void	memcmp_test(const void *s1, const void *s2, int n)
+{
+	printf("memcmp\nIN: %s %s\n", s1, s2);
+	printf("FT: %d\n", ft_memcmp(s1, s2, n));
+	printf("CC: %d\n", memcmp(s1, s2, n));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
+	memset_test(67, 0);
+	memset_test(500, 0);
 	bzero_test(5);
+	bzero_test(0);
 	memcpy_test("2tictacs", 9);
+	memcpy_test("", 0);
 	memccpy_test("3tictacs", 'c', 9);
 	memccpy_test("3tictacs", '4', 9);
+	memccpy_test("", ' ', 0);
 	memmove_test_string("4tictacs", 9);
+	memmove_test_string("", 0);
 	memmove_test_array();
 	memchr_test("5tictacs", 'c', 9);
+	memcmp_test("hello", "hello", 5);
+	memcmp_test("hello", "hellO", 5);
+	memcmp_test("", "", 0);
 }
