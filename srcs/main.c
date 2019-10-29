@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 15:28:21 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 15:41:46 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -306,6 +306,13 @@ void	tolower_test(char c)
 	printf("CC: %c\n", tolower(c));
 }
 
+void	strdup_test(char *src)
+{
+	printf("strdup\nIN: %s\n", src);
+	printf("FT: %s\n", ft_strdup(src));
+	printf("CC: %s\n", strdup(src));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -366,4 +373,7 @@ int		main(void)
 	toupper_test('D');
 	tolower_test('a');
 	tolower_test('D');
+	//todo calloc test
+	strdup_test("3tictac minimum entry");
+	strdup_test("");
 }
