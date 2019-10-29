@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 11:35:53 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/29 12:42:22 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,19 @@ void	strlen_test(const char *s)
 	printf("CC: %lu\n", strlen(s));
 }
 
+void	strlcpy_test(const char *s)
+{
+	char	*a;
+	char	*b;
+	int		size = 6;
+
+	printf("strlcpy\nIN: %s\n", s);
+	a = (char*)malloc(size);
+	printf("FT: %zu %s\n", ft_strlcpy(a, s, size), a);
+	b = (char*)malloc(size);
+	printf("CC: %lu %s\n", strlcpy(b, s, size), b);
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -196,4 +209,6 @@ int		main(void)
 	memcmp_test("", "", 0);
 	strlen_test("6tictacs");
 	strlen_test("");
+	strlcpy_test("tic");
+	strlcpy_test("tictac");
 }
