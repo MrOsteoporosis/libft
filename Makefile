@@ -6,7 +6,7 @@
 #    By: averheij <averheij@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 12:19:16 by averheij       #+#    #+#                 #
-#    Updated: 2019/10/29 15:58:25 by averheij      ########   odam.nl          #
+#    Updated: 2019/10/30 15:22:48 by averheij      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS        =   ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii\
 CFILES      =   $(SRCS:%=srcs/%.c)
 OFILES      =   $(CFILES:.c=.o)
 INCLUDES    =   ./includes
-FLAGS       =   -Wall -Werror -Wextra
+FLAGS       =   -Wall -Werror -Wextra -O2
 
 all: $(NAME)
 
