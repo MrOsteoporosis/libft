@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 10:57:23 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/30 12:14:50 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -331,6 +331,28 @@ void	strtrim_debug(char *s1, char const *set)
 	printf("FT: %s\n", ft_strtrim(s1, set));
 }
 
+void	split_debug(char const *s, char c)
+{
+	int		i = 0;
+	char	**arr;
+
+	printf("split\nIN: %s %c\n", s, c);
+	printf("FT:\n");
+	arr = ft_split(s, c);
+	while (arr[i])
+	{
+		printf("%s\n", arr[i]);
+		i++;
+	}
+	printf("\n");
+}
+
+void	itoa_debug(int n)
+{
+	printf("itoa\nIN: %d\n", n);
+	printf("FT: %s\n", ft_itoa(n));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -402,4 +424,10 @@ int		main(void)
 	strtrim_debug("aaaaawoawzaaa", ptr);
 	strtrim_debug("woawz", ptr);
 	strtrim_debug("aaaaaaa", ptr);
+	split_debug("wowthisocouldbeosploit", 'o');
+	split_debug("oooooooooo", 'o');
+	split_debug("1ooooo2oooo4o", 'o');
+	itoa_debug(__INT_MAX__);
+	itoa_debug(-2147483648);
+	itoa_debug(1020);
 }
