@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 10:43:53 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/30 10:57:23 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -325,6 +325,12 @@ void	strjoin_debug(char const *s1, char const *s2)
 	printf("FT: %s\n", ft_strjoin(s1, s2));
 }
 
+void	strtrim_debug(char *s1, char const *set)
+{
+	printf("strtrim\nIN: %s %c\n", s1, *set);
+	printf("FT: %s\n", ft_strtrim(s1, set));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -391,5 +397,9 @@ int		main(void)
 	substr_debug("This is my lovely string", 2, 8);
 	strjoin_debug("Add one tic tac", "with another tictac");
 	strjoin_debug("", "");
-
+	const char a = 'a';
+	const char *ptr = &a;
+	strtrim_debug("aaaaawoawzaaa", ptr);
+	strtrim_debug("woawz", ptr);
+	strtrim_debug("aaaaaaa", ptr);
 }
