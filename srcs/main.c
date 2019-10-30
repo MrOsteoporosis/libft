@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 15:41:46 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/30 10:26:38 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -313,6 +313,12 @@ void	strdup_test(char *src)
 	printf("CC: %s\n", strdup(src));
 }
 
+void	substr_debug(char const *s, unsigned int start, size_t len)
+{
+	printf("IN: %s %d %lu\n", s, start, len);
+	printf("FT: %s\n", ft_substr(s, start, len));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -373,7 +379,8 @@ int		main(void)
 	toupper_test('D');
 	tolower_test('a');
 	tolower_test('D');
-	//todo calloc test
+	//no way to test malloc block size
 	strdup_test("3tictac minimum entry");
 	strdup_test("");
+	substr_debug("This is my lovely string", 2, 8);
 }

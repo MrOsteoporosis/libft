@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:09:52 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 15:39:06 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/30 10:24:34 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,5 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(char *src);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 #endif
