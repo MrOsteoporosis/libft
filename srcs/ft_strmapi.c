@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memccpy.c                                       :+:    :+:            */
+/*   ft_strmapi.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 15:38:29 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 14:56:53 by averheij      ########   odam.nl         */
+/*   Created: 2019/10/30 14:13:22 by averheij       #+#    #+#                */
+/*   Updated: 2019/10/30 14:23:36 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		l;
-	void	*ptr;
+	int		i;
+	char	*res;
 
-	l = 0;
-	ptr = NULL;
-	while (l < (int)n)
+	while (s[i])
+		i++;
+	if (!(res = (char*)ft_calloc(i + 1, sizeof(char))))
+		return (NULL);
+	res[i] = '\0';
+	i = 0;
+	while (s[i])
 	{
-		*(unsigned char*)(dst + l) = *(unsigned char*)(src + l);
-		if (*(unsigned char*)(src + l) == (unsigned char)c)
-		{
-			ptr = (dst + l + 1);
-			break ;
-		}
-		l++;
+		res[i] = f((unsigned int)s[i], s[i]);
+		i++;
 	}
-	return (ptr);
+	return (res);
 }

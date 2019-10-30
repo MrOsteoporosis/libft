@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:09:52 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 12:16:02 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/30 14:24:12 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(const char *s, char c);
 char	*ft_itoa(int nb);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 #endif

@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 12:14:50 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/30 14:28:59 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -353,6 +353,17 @@ void	itoa_debug(int n)
 	printf("FT: %s\n", ft_itoa(n));
 }
 
+char	strmapi_func(unsigned int n, char c)
+{
+	return (c + 1);
+}
+
+void	strmapi_debug(char const *s, char (*f)(unsigned int, char))
+{
+	printf("strmapi\nIN: %s\n", s);
+	printf("FT: %s\n", ft_strmapi(s, f));
+}
+
 int		main(void)
 {
 	memset_test(67, 5);
@@ -430,4 +441,7 @@ int		main(void)
 	itoa_debug(__INT_MAX__);
 	itoa_debug(-2147483648);
 	itoa_debug(1020);
+	char (*f)(unsigned int, char) = &strmapi_func;
+	strmapi_debug("23tictac is too many for me, i want 22tictac", f);
+	strmapi_debug("", f);
 }
