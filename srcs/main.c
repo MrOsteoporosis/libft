@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 14:28:59 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/30 15:08:17 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -444,4 +444,15 @@ int		main(void)
 	char (*f)(unsigned int, char) = &strmapi_func;
 	strmapi_debug("23tictac is too many for me, i want 22tictac", f);
 	strmapi_debug("", f);
+
+	printf("ft_put*\n");
+	ft_putchar_fd('a', 1);
+	printf("\n");
+	ft_putendl_fd("litty titty string", 1);
+	ft_putstr_fd("anotha one", 1);
+	printf("\n");
+	ft_putnbr_fd(__INT_MAX__, 1);
+	printf("\n");
+	ft_putnbr_fd(-2147483648, 1);
+	printf("\n");
 }
