@@ -6,10 +6,11 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/19 12:48:50 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 12:15:45 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/30 14:08:10 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
 static int		ft_ischarset(char str, char *charset)
@@ -36,7 +37,7 @@ static int		ft_wordlength(char *charset, char *str)
 	return (i);
 }
 
-static int		ft_wordcount(char *charset, char *str)
+static int		ft_wc(char *charset, char *str)
 {
 	int		i;
 	int		fs;
@@ -70,7 +71,8 @@ static int		ft_wordcopy(char *charset, char **res, char *str, int pos)
 	fe = ft_wordlength(charset, str);
 	if (fe > 0)
 	{
-		res[pos] = (char*)malloc(sizeof(char) * (fe + 1));
+		if (!(res[pos] = (char*)malloc(sizeof(char) * (fe + 1))))
+			return (-1);
 		ptr = res[pos];
 		i = 0;
 		while (i < fe)
@@ -94,7 +96,7 @@ char			**ft_split(const char *s, char c)
 	pos = 0;
 	i = 0;
 
-	if (!(res = (char**)malloc(sizeof(char*) * (ft_wordcount(&c, (char*)s) + 1))))
+	if (!(res = (char**)malloc(sizeof(char*) * (ft_wc(&c, (char*)s) + 1))))
 		return (NULL);
 	while (s[i] != '\0')
 	{
@@ -104,6 +106,8 @@ char			**ft_split(const char *s, char c)
 			if (i != 0 || ft_ischarset(s[i], &c))
 				fs++;
 			pos = ft_wordcopy(&c, res, &((char*)s)[fs], pos);
+			if (pos == -1)
+				return (NULL);
 		}
 		i++;
 	}

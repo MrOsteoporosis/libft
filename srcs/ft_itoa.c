@@ -6,13 +6,11 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 11:52:43 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 13:05:47 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/30 14:11:34 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-#include <stdio.h>
 
 char	*ft_itoa(int nb)
 {
