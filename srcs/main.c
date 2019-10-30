@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 10:26:38 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/30 10:43:53 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -315,8 +315,14 @@ void	strdup_test(char *src)
 
 void	substr_debug(char const *s, unsigned int start, size_t len)
 {
-	printf("IN: %s %d %lu\n", s, start, len);
+	printf("substr\nIN: %s %d %lu\n", s, start, len);
 	printf("FT: %s\n", ft_substr(s, start, len));
+}
+
+void	strjoin_debug(char const *s1, char const *s2)
+{
+	printf("strjoin\nIN: %s %s\n", s1, s2);
+	printf("FT: %s\n", ft_strjoin(s1, s2));
 }
 
 int		main(void)
@@ -383,4 +389,7 @@ int		main(void)
 	strdup_test("3tictac minimum entry");
 	strdup_test("");
 	substr_debug("This is my lovely string", 2, 8);
+	strjoin_debug("Add one tic tac", "with another tictac");
+	strjoin_debug("", "");
+
 }
