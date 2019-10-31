@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 15:08:17 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/31 13:27:31 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -400,9 +400,15 @@ int		main(void)
 	strnstr_test("haystack", "ack", 9);
 	strnstr_test("", "ack", 9);
 	strnstr_test("ticstack", "", 9);
+	char	*s1 = "MZIRIBMZIRIBMZE123";
+	char	*s2 = "MZIRIBMZE";
+	size_t	max = strlen(s2);
+	strnstr_test(s1, s2, max);
+	return (0);
 	strncmp_test("hello", "hello", 5);
 	strncmp_test("hello", "hellO", 5);
-	strncmp_test("", "", 0);
+	strncmp_test("", "AAA", 3);
+	strncmp_test("AAA", "", 3);
 	atoi_test("-+100");
 	atoi_test("-1020");
 	atoi_test("+-12300");
@@ -424,7 +430,6 @@ int		main(void)
 	toupper_test('D');
 	tolower_test('a');
 	tolower_test('D');
-	//no way to test malloc block size
 	strdup_test("3tictac minimum entry");
 	strdup_test("");
 	substr_debug("This is my lovely string", 2, 8);
@@ -444,7 +449,6 @@ int		main(void)
 	char (*f)(unsigned int, char) = &strmapi_func;
 	strmapi_debug("23tictac is too many for me, i want 22tictac", f);
 	strmapi_debug("", f);
-
 	printf("ft_put*\n");
 	ft_putchar_fd('a', 1);
 	printf("\n");

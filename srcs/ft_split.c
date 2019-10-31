@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/19 12:48:50 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 14:08:10 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/31 11:16:10 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ char			**ft_split(const char *s, char c)
 
 	pos = 0;
 	i = 0;
-
 	if (!(res = (char**)malloc(sizeof(char*) * (ft_wc(&c, (char*)s) + 1))))
 		return (NULL);
 	while (s[i] != '\0')

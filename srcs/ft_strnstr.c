@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 13:25:15 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 15:57:56 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/31 13:34:44 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		{
 			n = 0;
 			while (haystack[h + n] && needle[n] && haystack[h + n] == needle[n])
+			{
 				n++;
+			}
+			if (h + n > (int)len)
+				break ;
 			if (!needle[n])
 				return ((char*)&haystack[h]);
 		}

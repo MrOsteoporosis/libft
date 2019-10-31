@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 13:53:58 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 15:57:49 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/31 11:08:54 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
+	if ((s1[i] && !s2[i]) || (!s1[i] && s2[i]))
+		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	return (0);
 }
