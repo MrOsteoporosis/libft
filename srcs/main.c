@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:08:30 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/31 13:27:31 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/31 15:59:12 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -331,21 +331,21 @@ void	strtrim_debug(char *s1, char const *set)
 	printf("FT: %s\n", ft_strtrim(s1, set));
 }
 
-void	split_debug(char const *s, char c)
-{
-	int		i = 0;
-	char	**arr;
+// void	split_debug(char const *s, char c)
+// {
+// 	int		i = 0;
+// 	char	**arr;
 
-	printf("split\nIN: %s %c\n", s, c);
-	printf("FT:\n");
-	arr = ft_split(s, c);
-	while (arr[i])
-	{
-		printf("%s\n", arr[i]);
-		i++;
-	}
-	printf("\n");
-}
+// 	printf("split\nIN: %s %c\n", s, c);
+// 	printf("FT:\n");
+// 	arr = ft_split(s, c);
+// 	while (arr[i])
+// 	{
+// 		printf("%s\n", arr[i]);
+// 		i++;
+// 	}
+// 	printf("\n");
+// }
 
 void	itoa_debug(int n)
 {
@@ -404,7 +404,6 @@ int		main(void)
 	char	*s2 = "MZIRIBMZE";
 	size_t	max = strlen(s2);
 	strnstr_test(s1, s2, max);
-	return (0);
 	strncmp_test("hello", "hello", 5);
 	strncmp_test("hello", "hellO", 5);
 	strncmp_test("", "AAA", 3);
@@ -440,9 +439,9 @@ int		main(void)
 	strtrim_debug("aaaaawoawzaaa", ptr);
 	strtrim_debug("woawz", ptr);
 	strtrim_debug("aaaaaaa", ptr);
-	split_debug("wowthisocouldbeosploit", 'o');
-	split_debug("oooooooooo", 'o');
-	split_debug("1ooooo2oooo4o", 'o');
+	// split_debug("wowthisocouldbeosploit", 'o');
+	// split_debug("oooooooooo", 'o');
+	// split_debug("1ooooo2oooo4o", 'o');
 	itoa_debug(__INT_MAX__);
 	itoa_debug(-2147483648);
 	itoa_debug(1020);

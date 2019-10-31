@@ -6,50 +6,44 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 14:26:33 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/31 14:03:38 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/31 15:53:22 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** extremely crude solution for the long min max test from libft unit test
-** would think you want to test for > pos < neg but actually c atoi works
-** for those
-*/
-
-static int	long_shld(int res)
+static long int		ft_fatoi(const char *str, unsigned long int res, int sign)
 {
-	if (res == 469762049)
-		return (0);
-	if (res == -469762049)
-		return (-1);
+	while (*str >= '0' && *str <= '9')
+	{
+		if ((res > 922337203685477580 || (res == 922337203685477580
+			&& (*str - '0') > 7)) && sign == 1)
+			return (-1);
+		else if ((res > 922337203685477580 || (res == 922337203685477580
+			&& (*str - '0') > 8)) && sign == -1)
+			return (0);
+		res = res * 10 + (*str - '0');
+		str++;
+	}
 	return (res);
 }
 
-int		ft_atoi(const char *str)
+int					ft_atoi(const char *str)
 {
-	int		res;
-	int		negative;
+	int					sign;
+	unsigned long int	res;
 
-	negative = 0;
+	sign = 1;
 	res = 0;
-	while (*str == 32 || (*str < 14 && *str > 8))
+	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-')
 	{
-		negative = -1;
+		sign = -1;
 		str++;
-		if (*str == '+')
-			return (0);
 	}
 	if (*str == '+')
 		str++;
-	while (*str != '\0' && *str >= 48 && *str <= 57)
-	{
-		res = res * 10 + *str - '0';
-		str++;
-	}
-	negative == -1 ? res = (res * -1) : negative++;
-	return (long_shld(res));
+	res = ft_fatoi(str, res, sign);
+	return (sign * (int)res);
 }

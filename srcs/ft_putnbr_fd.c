@@ -6,13 +6,25 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 15:02:14 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 15:04:04 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/31 16:08:32 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static void	ft_recur(int n, int fd)
+{
+	if (n / 10)
+		ft_recur(n / 10, fd);
+	if (n < 0)
+		ft_putchar_fd('0' - n % 10, fd);
+	else
+		ft_putchar_fd('0' + n % 10, fd);
+}
+
 void	ft_putnbr_fd(int n, int fd)
 {
-	ft_putstr_fd(ft_itoa(n), fd);
+	if (n < 0)
+		ft_putchar_fd('-', fd);
+	ft_recur(n, fd);
 }

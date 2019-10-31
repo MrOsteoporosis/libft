@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/19 12:48:50 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/31 11:16:10 by averheij      ########   odam.nl         */
+/*   Updated: 2019/10/31 15:31:47 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,30 +86,30 @@ static int		ft_wordcopy(char *charset, char **res, char *str, int pos)
 	return (pos);
 }
 
-char			**ft_split(const char *s, char c)
-{
-	int		i;
-	int		fs;
-	int		pos;
-	char	**res;
+// char			**ft_split(const char *s, char c)
+// {
+// 	int		i;
+// 	int		fs;
+// 	int		pos;
+// 	char	**res;
 
-	pos = 0;
-	i = 0;
-	if (!(res = (char**)malloc(sizeof(char*) * (ft_wc(&c, (char*)s) + 1))))
-		return (NULL);
-	while (s[i] != '\0')
-	{
-		if (ft_ischarset(s[i], &c) || i == 0)
-		{
-			fs = i;
-			if (i != 0 || ft_ischarset(s[i], &c))
-				fs++;
-			pos = ft_wordcopy(&c, res, &((char*)s)[fs], pos);
-			if (pos == -1)
-				return (NULL);
-		}
-		i++;
-	}
-	res[pos] = 0;
-	return (res);
-}
+// 	pos = 0;
+// 	i = 0;
+// 	if (!(res = (char**)malloc(sizeof(char*) * (ft_wc(&c, (char*)s) + 1))))
+// 		return (NULL);
+// 	while (s[i] != '\0')
+// 	{
+// 		if (ft_ischarset(s[i], &c) || i == 0)
+// 		{
+// 			fs = i;
+// 			if (i != 0 || ft_ischarset(s[i], &c))
+// 				fs++;
+// 			pos = ft_wordcopy(&c, res, &((char*)s)[fs], pos);
+// 			if (pos == -1)
+// 				return (NULL);
+// 		}
+// 		i++;
+// 	}
+// 	res[pos] = 0;
+// 	return (res);
+// }
