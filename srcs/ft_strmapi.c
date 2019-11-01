@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 14:13:22 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/31 10:19:46 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/01 10:35:29 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (s[i])
 	{
-		res[i] = f((unsigned int)s[i], s[i]);
+		res[i] = f(i, s[i]);
 		i++;
 	}
 	return (res);

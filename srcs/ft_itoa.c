@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 11:52:43 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 14:11:34 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/01 10:26:00 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ char	*ft_itoa(int nb)
 	int		temp;
 
 	temp = nb;
-	size = 0;
+	size = (nb == 0) ? 1 : 0;
 	while (temp)
 	{
 		temp = temp / 10;
 		size++;
 	}
-	(nb < 0) ? temp++ : size--;
+	(nb < 0) ? size++ : temp--;
 	if (!(str = (char*)ft_calloc(sizeof(char), size + 1)))
 		return (NULL);
-	str[size] = '\0';
+	str[size - 1] = '\0';
+	size--;
 	temp = nb;
 	while (size >= ((nb < 0) ? 1 : 0))
 	{
