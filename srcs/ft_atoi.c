@@ -6,24 +6,27 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 14:26:33 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/31 15:53:22 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/04 10:20:47 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
 static long int		ft_fatoi(const char *str, unsigned long int res, int sign)
 {
+	int		convi;
+
+	convi = 0;
 	while (*str >= '0' && *str <= '9')
 	{
-		if ((res > 922337203685477580 || (res == 922337203685477580
-			&& (*str - '0') > 7)) && sign == 1)
+		if (convi == 19 && sign == 1)
 			return (-1);
-		else if ((res > 922337203685477580 || (res == 922337203685477580
-			&& (*str - '0') > 8)) && sign == -1)
+		else if (convi == 19 && sign == -1)
 			return (0);
 		res = res * 10 + (*str - '0');
 		str++;
+		convi++;
 	}
 	return (res);
 }
