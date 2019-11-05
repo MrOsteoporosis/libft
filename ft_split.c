@@ -6,12 +6,23 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/19 12:48:50 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/01 14:29:04 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/05 11:45:39 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+
+static void		*fallingwithstyle(char **res, int pos)
+{
+	while (pos >= 0)
+	{
+		free(res[pos]);
+		pos--;
+	}
+	free(res);
+	return (NULL);
+}
 
 static int		ft_wordlength(char c, char *str)
 {
@@ -66,10 +77,11 @@ static int		ft_wordcopy(char *c, char **res, char *str, int pos)
 char			**ft_split(const char *str, char c)
 {
 	int		i;
-	int		fs;
 	int		pos;
 	char	**res;
 
+	if (!str || !c)
+		return (NULL);
 	pos = 0;
 	i = 0;
 	if (!(res = (char**)malloc(sizeof(char*) * (ft_wc(&c, (char*)str) + 1))))
@@ -78,12 +90,11 @@ char			**ft_split(const char *str, char c)
 	{
 		if (str[i + 1] && (str[i] == c || i == 0) && str[i + 1] != c)
 		{
-			fs = i;
 			if (i != 0 || str[i] == c)
-				fs++;
-			pos = ft_wordcopy(&c, res, &((char*)str)[fs], pos);
+				i++;
+			pos = ft_wordcopy(&c, res, &((char*)str)[i], pos);
 			if (pos == -1)
-				return (NULL);
+				return (fallingwithstyle(res, pos));
 		}
 		i++;
 	}

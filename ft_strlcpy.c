@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putendl_fd.c                                    :+:    :+:            */
+/*   ft_strlcpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/30 15:00:48 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 15:04:26 by averheij      ########   odam.nl         */
+/*   Created: 2019/10/29 12:17:37 by averheij       #+#    #+#                */
+/*   Updated: 2019/11/05 11:38:12 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putendl_fd(char *s, int fd)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	int		i;
-	char	endl;
 
+	if (!src)
+		return (-1);
 	i = 0;
-	while (s[i])
+	while (src[i] && i < (int)dstsize - 1)
+	{
+		dst[i] = src[i];
 		i++;
-	write(fd, s, i);
-	endl = '\n';
-	write(fd, &endl, 1);
+	}
+	dst[i] = '\0';
+	while (src[i])
+		i++;
+	return (i);
 }

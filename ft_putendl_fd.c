@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strjoin.c                                       :+:    :+:            */
+/*   ft_putendl_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/30 10:29:29 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 10:41:09 by averheij      ########   odam.nl         */
+/*   Created: 2019/10/30 15:00:48 by averheij       #+#    #+#                */
+/*   Updated: 2019/11/05 11:42:30 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	*res;
-	int		l1;
-	int		l2;
 	int		i;
+	char	endl;
 
-	l1 = ft_strlen(s1);
-	l2 = ft_strlen(s2);
-	if (!(res = (char*)ft_calloc(sizeof(char), l1 + l2)))
-		return (NULL);
+	if (!s)
+		return ;
 	i = 0;
-	while (i < l1)
-	{
-		res[i] = s1[i];
+	while (s[i])
 		i++;
-	}
-	i = 0;
-	while (i < l2)
-	{
-		res[i + l1] = s2[i];
-		i++;
-	}
-	return (res);
+	write(fd, s, i);
+	endl = '\n';
+	write(fd, &endl, 1);
 }

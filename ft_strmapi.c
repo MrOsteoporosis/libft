@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 14:13:22 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/01 10:35:29 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/05 11:41:00 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 	char	*res;
 
+	if (!s || !f)
+		return (NULL);
 	i = 0;
 	while (s[i])
 		i++;
