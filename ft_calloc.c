@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 15:32:45 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/31 15:23:11 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/05 12:23:47 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void		*block;
 
-	if (!(block = (void*)malloc(count * size)))
+	block = (void*)malloc(count * size);
+	if (!block)
 		return (NULL);
 	ft_bzero(block, count * size);
 	return (block);

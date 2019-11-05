@@ -6,7 +6,7 @@
 #    By: averheij <averheij@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 12:19:16 by averheij       #+#    #+#                 #
-#    Updated: 2019/11/05 11:53:37 by averheij      ########   odam.nl          #
+#    Updated: 2019/11/05 12:14:39 by averheij      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ BONUS_SRCS  =	ft_lstnew_bonus ft_lstadd_back_bonus ft_lstadd_front_bonus\
 				ft_lstclear_bonus ft_lstiter_bonus ft_lstmap_bonus
 BONUS_CFILES=	$(BONUS_SRCS:%=%.c)
 BONUS_OFILES=	$(BONUS_CFILES:.c=.o)
-INCLUDES    =   
+INCLUDES    =
 FLAGS       =   -Wall -Werror -Wextra
 
 all: $(NAME)
@@ -45,7 +45,7 @@ fclean: clean
 	@echo "Cleaning: "
 	@rm -f $(NAME)
 
-re: fclean all 
+re: fclean all
 
 bonus: $(OFILES) $(BONUS_OFILES)
 	ar rc $(NAME) $(OFILES) $(BONUS_OFILES)

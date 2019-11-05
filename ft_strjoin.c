@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 10:29:29 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/05 11:38:42 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/05 12:32:27 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	l1 = ft_strlen(s1);
 	l2 = ft_strlen(s2);
-	if (!(res = (char*)ft_calloc(sizeof(char), l1 + l2)))
+	res = (char*)ft_calloc(sizeof(char), l1 + l2);
+	if (!res)
 		return (NULL);
 	i = 0;
 	while (i < l1)

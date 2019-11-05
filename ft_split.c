@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/19 12:48:50 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/05 11:45:39 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/05 12:31:52 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ static int		ft_wordcopy(char *c, char **res, char *str, int pos)
 	if (*str != *c)
 	{
 		fe = ft_wordlength(*c, str);
-		if (!(res[pos] = (char*)malloc(sizeof(char) * (fe + 1))))
+		res[pos] = (char*)malloc(sizeof(char) * (fe + 1));
+		if (!res[pos])
 			return (-1);
 		ptr = res[pos];
 		i = 0;
@@ -84,7 +85,8 @@ char			**ft_split(const char *str, char c)
 		return (NULL);
 	pos = 0;
 	i = 0;
-	if (!(res = (char**)malloc(sizeof(char*) * (ft_wc(&c, (char*)str) + 1))))
+	res = (char**)malloc(sizeof(char*) * (ft_wc(&c, (char*)str) + 1));
+	if (!res)
 		return (NULL);
 	while (str[i])
 	{
