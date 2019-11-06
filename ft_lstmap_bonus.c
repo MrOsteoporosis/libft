@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 12:10:28 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/05 12:27:37 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/06 14:34:41 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	ele = ft_lstnew(f(lst->content));
 	if (!ele)
-		return (fallingwithstyle(lst, del));
+		return (fallingwithstyle(ele, del));
 	nlst = ele;
 	lst = lst->next;
 	while (lst)
 	{
 		ele->next = ft_lstnew(f(lst->content));
 		if (!ele->next)
-			return (fallingwithstyle(lst, del));
+			return (fallingwithstyle(nlst, del));
 		lst = lst->next;
 		ele = ele->next;
 	}

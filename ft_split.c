@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/19 12:48:50 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/05 12:31:52 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/06 15:12:19 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char			**ft_split(const char *str, char c)
 	int		pos;
 	char	**res;
 
-	if (!str || !c)
+	if (!str)
 		return (NULL);
 	pos = 0;
 	i = 0;
