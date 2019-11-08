@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/19 12:48:50 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/06 15:12:19 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/07 12:28:05 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static void		*fallingwithstyle(char **res, int pos)
 {
 	while (pos >= 0)
 	{
-		free(res[pos]);
+		if (res[pos])
+			free(res[pos]);
 		pos--;
 	}
 	free(res);
