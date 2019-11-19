@@ -6,14 +6,14 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/19 12:48:50 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/07 12:28:05 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/19 14:16:42 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static void		*fallingwithstyle(char **res, int pos)
+static int		fallingwithstyle(char **res, int pos)
 {
 	while (pos >= 0)
 	{
@@ -22,7 +22,7 @@ static void		*fallingwithstyle(char **res, int pos)
 		pos--;
 	}
 	free(res);
-	return (NULL);
+	return (-1);
 }
 
 static int		ft_wordlength(char c, char *str)
@@ -44,7 +44,8 @@ static int		ft_wc(char *c, char *str)
 	count = 0;
 	while (str[i])
 	{
-		if (str[i + 1] && (str[i] == *c || i == 0) && str[i + 1] != *c)
+		if (str[i + 1] && ((str[i] == *c && str[i + 1] != *c)
+			|| (i == 0 && str[i] != *c)))
 			count++;
 		i++;
 	}
@@ -62,7 +63,7 @@ static int		ft_wordcopy(char *c, char **res, char *str, int pos)
 		fe = ft_wordlength(*c, str);
 		res[pos] = (char*)malloc(sizeof(char) * (fe + 1));
 		if (!res[pos])
-			return (-1);
+			return (fallingwithstyle(res, pos));
 		ptr = res[pos];
 		i = 0;
 		while (i < fe)
@@ -76,28 +77,28 @@ static int		ft_wordcopy(char *c, char **res, char *str, int pos)
 	return (pos);
 }
 
-char			**ft_split(const char *str, char c)
+char			**ft_split(const char *s, char c)
 {
 	int		i;
 	int		pos;
 	char	**res;
 
-	if (!str)
+	if (!s)
 		return (NULL);
 	pos = 0;
 	i = 0;
-	res = (char**)malloc(sizeof(char*) * (ft_wc(&c, (char*)str) + 1));
+	res = (char**)malloc(sizeof(char*) * (ft_wc(&c, (char*)s) + 1));
 	if (!res)
 		return (NULL);
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i + 1] && (str[i] == c || i == 0) && str[i + 1] != c)
+		if (s[i + 1] && ((s[i] == c && s[i + 1] != c) || (i == 0 && s[i] != c)))
 		{
-			if (i != 0 || str[i] == c)
+			if (s[i] == c)
 				i++;
-			pos = ft_wordcopy(&c, res, &((char*)str)[i], pos);
+			pos = ft_wordcopy(&c, res, &((char*)s)[i], pos);
 			if (pos == -1)
-				return (fallingwithstyle(res, pos));
+				return (NULL);
 		}
 		i++;
 	}

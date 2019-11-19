@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 10:45:14 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/08 09:45:09 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/19 13:59:56 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 	i++;
 	if (i <= pos1)
 		return (ft_strdup(""));
-	res = (char*)ft_calloc(sizeof(char), (pos1 >= i) ? 1 : (i - pos1 + 1));
+	res = (char*)ft_calloc(sizeof(char), i - pos1 + 1);
 	if (!res)
 		return (NULL);
 	if (pos1 >= i)
