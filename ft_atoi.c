@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 14:26:33 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/05 11:45:50 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/14 11:05:18 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int					ft_atoi(const char *str)
 		sign = -1;
 		str++;
 	}
-	if (*str == '+')
+	else if (*str == '+')
 		str++;
 	res = ft_fatoi(str, res, sign);
 	return (sign * (int)res);
