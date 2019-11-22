@@ -6,7 +6,7 @@
 #    By: averheij <averheij@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 12:19:16 by averheij       #+#    #+#                 #
-#    Updated: 2019/11/19 13:55:59 by averheij      ########   odam.nl          #
+#    Updated: 2019/11/22 12:20:01 by averheij      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,12 +38,15 @@ $(NAME): $(OFILES)
 	@gcc -o $@ -c $< $(FLAGS) -I$(INCLUDES)
 
 clean:
+	@echo "Cleaning: Objects"
 	@rm -f $(OFILES)
 	@rm -f $(BONUS_OFILES)
+	@echo "Done"
 
 fclean: clean
-	@echo "Cleaning: "
+	@echo "Cleaning: Library"
 	@rm -f $(NAME)
+	@echo "Done"
 
 re: fclean all
 
