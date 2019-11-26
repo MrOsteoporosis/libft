@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 10:45:14 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/22 12:10:57 by averheij      ########   odam.nl         */
+/*   Updated: 2019/11/26 12:29:03 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_skipmatch(char const *s1, char const *set, int incr, int i)
 		done = 1;
 		while (set[j])
 		{
-			while (s1[i] && s1[i] == set[j])
+			while (i >= 0 && s1[i] && s1[i] == set[j])
 			{
 				i += incr;
 				done = 0;
