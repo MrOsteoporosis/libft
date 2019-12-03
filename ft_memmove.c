@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 16:10:19 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/31 10:47:38 by averheij      ########   odam.nl         */
+/*   Updated: 2019/12/03 10:23:26 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (!dst && !src)
 		return (dst);
-	if ((long int)dst > (long int)src)
+	if (dst > src)
 	{
 		l = (int)len - 1;
 		while (l >= 0)
