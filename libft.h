@@ -6,14 +6,19 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 13:09:52 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/06 14:18:36 by averheij      ########   odam.nl         */
+/*   Updated: 2019/12/03 12:37:12 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <string.h>
+# include <stddef.h>
 
+typedef struct	s_list
+{
+	void			*content;
+	struct s_list	*next;
+}				t_list;
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
@@ -49,11 +54,6 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
-typedef struct	s_list
-{
-	void			*content;
-	struct s_list	*next;
-}				t_list;
 void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 t_list			*ft_lstlast(t_list *lst);
