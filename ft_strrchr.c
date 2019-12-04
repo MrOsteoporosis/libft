@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 13:22:32 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 13:23:13 by averheij      ########   odam.nl         */
+/*   Updated: 2019/12/04 13:05:17 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char*)&s[i]);
 		i--;
 	}
-	return (NULL);
+	return (0);
 }
