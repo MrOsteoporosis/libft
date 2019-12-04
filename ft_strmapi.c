@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 14:13:22 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/05 12:32:39 by averheij      ########   odam.nl         */
+/*   Updated: 2019/12/04 14:39:02 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
+	size_t	i;
 	char	*res;
 
 	if (!s || !f)

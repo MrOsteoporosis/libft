@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 13:04:19 by averheij       #+#    #+#                */
-/*   Updated: 2019/12/04 12:53:34 by averheij      ########   odam.nl         */
+/*   Updated: 2019/12/04 14:14:19 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == c)
-			return ((char*)&s[i]);
+			return ((char *)&s[i]);
 		i++;
 	}
 	if (!c)
-		return ((char*)&s[i]);
+		return ((char *)&s[i]);
 	return (0);
 }

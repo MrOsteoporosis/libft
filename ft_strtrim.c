@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 10:45:14 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/26 12:29:03 by averheij      ########   odam.nl         */
+/*   Updated: 2019/12/04 14:32:16 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ char		*ft_strtrim(char const *s1, char const *set)
 	int		pos1;
 	char	*res;
 
-	if (!s1 || !set)
-		return (NULL);
+	if (!s1)
+		return (0);
+	if (!set)
+		return (ft_strdup(""));
 	pos1 = ft_skipmatch(s1, set, 1, 0);
 	i = 0;
 	while (s1[i])
@@ -54,7 +56,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 	i++;
 	if (i <= pos1)
 		return (ft_strdup(""));
-	res = (char*)ft_calloc(sizeof(char), i - pos1 + 1);
+	res = (char *)ft_calloc(sizeof(char), i - pos1 + 1);
 	if (!res)
 		return (NULL);
 	ft_strlcpy(res, &s1[pos1], i - pos1 + 1);

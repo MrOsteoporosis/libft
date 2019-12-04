@@ -6,25 +6,11 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 14:26:33 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/14 11:05:18 by averheij      ########   odam.nl         */
+/*   Updated: 2019/12/04 14:08:17 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static long int		ft_fatoi(const char *str, unsigned long int res, int sign)
-{
-	while (*str >= '0' && *str <= '9')
-	{
-		res = res * 10 + (*str - '0');
-		str++;
-		if (res > 9223372036854775807UL && sign == 1)
-			return (-1);
-		else if (res > 9223372036854775808UL && sign == -1)
-			return (0);
-	}
-	return (res);
-}
 
 int					ft_atoi(const char *str)
 {
@@ -42,6 +28,14 @@ int					ft_atoi(const char *str)
 	}
 	else if (*str == '+')
 		str++;
-	res = ft_fatoi(str, res, sign);
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + (*str - '0');
+		str++;
+		if (res > 9223372036854775807UL && sign == 1)
+			return (-1);
+		else if (res > 9223372036854775808UL && sign == -1)
+			return (0);
+	}
 	return (sign * (int)res);
 }

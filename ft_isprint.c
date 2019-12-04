@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 15:06:08 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/30 14:02:20 by averheij      ########   odam.nl         */
+/*   Updated: 2019/12/04 14:28:56 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_isprint(int c)
 {
-	if ((c >= 32 && c <= 126))
+	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);
 }

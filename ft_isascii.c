@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 15:02:28 by averheij       #+#    #+#                */
-/*   Updated: 2019/10/29 15:21:57 by averheij      ########   odam.nl         */
+/*   Updated: 2019/12/04 14:29:03 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_isascii(int c)
 {
-	if ((c >= 0 && c <= 127))
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }

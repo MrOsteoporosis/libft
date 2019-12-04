@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 15:00:48 by averheij       #+#    #+#                */
-/*   Updated: 2019/11/05 11:42:30 by averheij      ########   odam.nl         */
+/*   Updated: 2019/12/04 14:40:07 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int		i;
-	char	endl;
+	size_t	i;
 
 	if (!s)
 		return ;
@@ -24,6 +23,5 @@ void	ft_putendl_fd(char *s, int fd)
 	while (s[i])
 		i++;
 	write(fd, s, i);
-	endl = '\n';
-	write(fd, &endl, 1);
+	write(fd, "\n", 1);
 }
