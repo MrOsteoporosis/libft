@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 10:09:02 by averheij       #+#    #+#                */
-/*   Updated: 2019/12/04 14:26:32 by averheij      ########   odam.nl         */
+/*   Updated: 2019/12/05 11:20:29 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (i - start < len)
 		len = i - start;
-	sub = (char*)ft_calloc(sizeof(char), len + 1);
+	sub = (char *)ft_calloc(sizeof(char), len + 1);
 	if (!sub)
 		return (NULL);
 	ft_strlcpy(sub, s + start, len + 1);
